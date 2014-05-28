@@ -361,6 +361,12 @@ typedef void (^MBProgressHUDCompletionBlock)();
  */
 @property (assign) BOOL dimBackground;
 
+/**
+ * Cover the HUD background view with a uniform amount of shading (0 - 1).  
+ * Defaults to 0. Only used if dimBackground is not set.
+ */
+@property (assign) float shadedBackgroundOpacity;
+
 /*
  * Grace period is the time (in seconds) that the invoked method may be run without 
  * showing the HUD. If the task finishes before the grace time runs out, the HUD will
