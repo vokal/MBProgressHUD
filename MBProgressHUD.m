@@ -103,7 +103,9 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 @synthesize minSize;
 @synthesize square;
 @synthesize margin;
+@synthesize verticalPadding;
 @synthesize dimBackground;
+@synthesize shadedBackgroundOpacity;
 @synthesize graceTime;
 @synthesize minShowTime;
 @synthesize graceTimer;
@@ -189,7 +191,9 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		self.xOffset = 0.0f;
 		self.yOffset = 0.0f;
 		self.dimBackground = NO;
+        self.shadedBackgroundOpacity = 0;
 		self.margin = 20.0f;
+        self.verticalPadding = kPadding;
         self.cornerRadius = 10.0f;
 		self.graceTime = 0.0f;
 		self.minShowTime = 0.0f;
@@ -565,7 +569,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	yPos += indicatorF.size.height;
 	
 	if (labelSize.height > 0.f && indicatorF.size.height > 0.f) {
-		yPos += kPadding;
+		yPos += self.verticalPadding;
 	}
 	CGRect labelF;
 	labelF.origin.y = yPos;
@@ -575,7 +579,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	yPos += labelF.size.height;
 	
 	if (detailsLabelSize.height > 0.f && (indicatorF.size.height > 0.f || labelSize.height > 0.f)) {
-		yPos += kPadding;
+		yPos += self.verticalPadding;
 	}
 	CGRect detailsLabelF;
 	detailsLabelF.origin.y = yPos;
@@ -627,7 +631,10 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 									 0, gradCenter, gradRadius,
 									 kCGGradientDrawsAfterEndLocation);
 		CGGradientRelease(gradient);
-	}
+	} else if (self.shadedBackgroundOpacity > 0) {
+        CGContextSetGrayFillColor(context, 0.0f, self.shadedBackgroundOpacity);
+        CGContextFillRect(context, self.bounds);
+    }
 
     // Set background rect color
     if (self.color) {

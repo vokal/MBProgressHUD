@@ -345,7 +345,13 @@ typedef void (^MBProgressHUDCompletionBlock)();
 @property (assign) float margin;
 
 /**
- * The corner radius for th HUD
+ * The amount of vertical space between the HUD elements (labels, indicators or custom views).
+ * Defaults to 4.0
+ */
+@property (assign) float verticalPadding;
+
+/**
+ * The corner radius for the HUD
  * Defaults to 10.0
  */
 @property (assign) float cornerRadius;
@@ -354,6 +360,12 @@ typedef void (^MBProgressHUDCompletionBlock)();
  * Cover the HUD background view with a radial gradient. 
  */
 @property (assign) BOOL dimBackground;
+
+/**
+ * Cover the HUD background view with a uniform amount of shading (0 - 1).  
+ * Defaults to 0. Only used if dimBackground is not set.
+ */
+@property (assign) float shadedBackgroundOpacity;
 
 /*
  * Grace period is the time (in seconds) that the invoked method may be run without 

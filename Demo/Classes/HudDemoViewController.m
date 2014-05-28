@@ -135,6 +135,9 @@
 	
 	HUD.delegate = self;
 	HUD.labelText = @"Completed";
+	HUD.labelColor = [UIColor blackColor];
+	HUD.color = [UIColor whiteColor];
+	HUD.shadedBackgroundOpacity = 0.6;
 	
 	[HUD show:YES];
 	[HUD hide:YES afterDelay:3];
