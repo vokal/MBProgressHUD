@@ -346,6 +346,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
 
 /**
  * The corner radius for th HUD
+ * The corner radius for the HUD
  * Defaults to 10.0
  */
 @property (assign) float cornerRadius;
