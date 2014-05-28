@@ -345,7 +345,12 @@ typedef void (^MBProgressHUDCompletionBlock)();
 @property (assign) float margin;
 
 /**
- * The corner radius for th HUD
+ * The amount of vertical space between the HUD elements (labels, indicators or custom views).
+ * Defaults to 4.0
+ */
+@property (assign) float verticalPadding;
+
+/**
  * The corner radius for the HUD
  * Defaults to 10.0
  */

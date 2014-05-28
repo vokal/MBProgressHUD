@@ -103,6 +103,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 @synthesize minSize;
 @synthesize square;
 @synthesize margin;
+@synthesize verticalPadding;
 @synthesize dimBackground;
 @synthesize graceTime;
 @synthesize minShowTime;
@@ -190,6 +191,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		self.yOffset = 0.0f;
 		self.dimBackground = NO;
 		self.margin = 20.0f;
+        self.verticalPadding = kPadding;
         self.cornerRadius = 10.0f;
 		self.graceTime = 0.0f;
 		self.minShowTime = 0.0f;
@@ -565,7 +567,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	yPos += indicatorF.size.height;
 	
 	if (labelSize.height > 0.f && indicatorF.size.height > 0.f) {
-		yPos += kPadding;
+		yPos += self.verticalPadding;
 	}
 	CGRect labelF;
 	labelF.origin.y = yPos;
@@ -575,7 +577,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	yPos += labelF.size.height;
 	
 	if (detailsLabelSize.height > 0.f && (indicatorF.size.height > 0.f || labelSize.height > 0.f)) {
-		yPos += kPadding;
+		yPos += self.verticalPadding;
 	}
 	CGRect detailsLabelF;
 	detailsLabelF.origin.y = yPos;
